@@ -1,20 +1,22 @@
-<<<<<<< HEAD
 #ifndef INTERFACE_GUARD__H
 #define INTERFACE_GUARD__H
 
-void run_interface();
-int end_status();
-int load_state();
-int save_state();
-int new_state(int w, int h);
-void evolve(int ss);
-//void filp_state();
+#include <stdio.h>
+#include <stdbool.h>
+#include <SDL.h>
 
-=======
-#ifndef INTERFACE_GUARD__H
-#define INTERFACE_GUARD__H
+int horizontalWidth, verticalHeight;
+int screenWidth, screenHeight;
 
-void run_interface();
+int runInterface();
+void sdlEvent(int cell[][horizontalWidth]); 
+SDL_Window *sdlWindow(char *title);
+SDL_Renderer *rRenderer(SDL_Window *w);
+void drawPlate(SDL_Renderer *r);
+void drawCell(SDL_Renderer *r, int cell[][horizontalWidth]);
+void evolve(int cell[][horizontalWidth]);
+int calculateNeighbour(int cell[][horizontalWidth], int x, int y);
+int saveState(int cell[][horizontalWidth]);
+int loadState();
 
->>>>>>> a12903f648f3de12abef264d655fa1b44b794950
 #endif

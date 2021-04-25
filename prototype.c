@@ -2,11 +2,14 @@
 #include <stdbool.h>
 #include <SDL.h>
 
-#include "interface.h"
+#include "prototype.h"
 
 #define unitSize 10
 
-int runInterface(){
+//int horizontalWidth, verticalHeight;
+//int screenWidth, screenHeight;
+
+int main(int argc, char *argv[]){
 	int option, w, h;
 	printf("\nWelcome to Game of Life\n1. New Game\n2. Load Game\n3. Quit\nEnter the option: ");
     scanf("%d", &option);

@@ -1,0 +1,31 @@
+# Project: GoL
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = interface.o main.o
+LINKOBJ  = interface.o main.o
+LIBS     = -L"D:/CS/Dev-Cpp/TDM-GCC-64/lib" -L"D:/CS/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -lmingw32 -lSDL2main -lSDL2 -g3
+INCS     = -I"D:/CS/Dev-Cpp/TDM-GCC-64/include" -I"D:/CS/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/CS/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"D:/CS/Dev-Cpp/TDM-GCC-64/include" -I"D:/CS/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/CS/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/CS/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = GoL.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+DEL      = D:\CS\Dev-Cpp\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+interface.o: interface.c
+	$(CC) -c interface.c -o interface.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
